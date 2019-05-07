@@ -1,0 +1,51 @@
+{
+    "title": "Url2Text APIs",
+    "description": "Url to Text.<BR />[Endpoint] https://api.apitore.com/api/13",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/apitore.com/url2textApis/0.0.1/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.apitore.com/api/13",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "url2textUsingGET": {
+            "main": "./lib/actions/url2textUsingGET.js",
+            "title": "URL to TEXT",
+            "description": "Jsoup Web scraper.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/jsoup-response\">jsoup-response</a><BR />&nbsp; Class: com.apitore.banana.response.org.jsoup.TextResponseEntity<BR />",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/url2textUsingGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
